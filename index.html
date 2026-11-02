@@ -808,6 +808,11 @@ document.getElementById('openInvitation').addEventListener('click', () => {
   document.getElementById('welcome').classList.add('hidden');
   document.getElementById('musicButton').style.display = 'flex';
 
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
   lanzarCelebracion();
   startMusic();
 });
