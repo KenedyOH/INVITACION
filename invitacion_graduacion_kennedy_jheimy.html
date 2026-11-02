@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101d39">
+<title>Graduación 2026 | Kenedy & Jheimy</title>
+
+<style>
+:root {
+  --navy:#101d39;
+  --navy2:#1c3156;
+  --wine:#70233f;
+  --gold:#c7a15d;
+  --gold-light:#f0dba9;
+  --cream:#fbf8f1;
+  --ink:#282832;
+}
+
+* { box-sizing:border-box; }
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+
+button,a { -webkit-tap-highlight-color:transparent; }
+
+/* PORTADA DE BIENVENIDA */
+
+.welcome {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:25px;
+  color:white;
+  background:
+    radial-gradient(circle at 20% 20%,#304a70,transparent 40%),
+    radial-gradient(circle at 80% 80%,#70233f,transparent 40%),
+    linear-gradient(135deg,#091329,#17294b);
+  transition:opacity 1s,visibility 1s;
+}
+
+.welcome.hidden {
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.welcome-card {
+  max-width:570px;
+  width:100%;
+  padding:48px 25px;
+  border:1px solid var(--gold);
+  outline:1px solid #c7a15d55;
+  outline-offset:9px;
+  animation:appear 1.5s ease both;
+}
+
+.welcome h1 {
+  font-size:clamp(42px,9vw,68px);
+  font-weight:normal;
+  color:var(--gold-light);
+  margin:20px 0;
+}
+
+.welcome p {
+  line-height:1.7;
+  color:#eee8dc;
+}
+
+.open-btn {
+  margin-top:25px;
+  border:1px solid var(--gold-light);
+  background:var(--gold);
+  color:var(--navy);
+  padding:16px 28px;
+  font:600 12px Arial,sans-serif;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.open-btn:hover {
+  background:var(--gold-light);
+  transform:scale(1.05);
+}
+
+/* EFECTOS GENERALES */
+
+.sparkle {
+  position:fixed;
+  pointer-events:none;
+  z-index:2;
+  color:#e9c979;
+  animation:twinkle 3s infinite ease-in-out;
+  text-shadow:0 0 8px #f0dba9,0 0 18px #d5a94f;
+}
+
+@keyframes twinkle {
+  0%,100% { opacity:.15; transform:scale(.7) rotate(0); }
+  50% { opacity:1; transform:scale(1.3) rotate(35deg); }
+}
+
+@keyframes appear {
+  from { opacity:0; transform:translateY(25px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+@keyframes shine {
+  0% { background-position:-200% center; }
+  100% { background-position:200% center; }
+}
+
+@keyframes float {
+  0%,100% { transform:translateY(0) rotate(-5deg); }
+  50% { transform:translateY(-13px) rotate(5deg); }
+}
+
+@keyframes fall {
+  0% { transform:translateY(-10vh) rotate(0deg); opacity:1; }
+  100% { transform:translateY(110vh) rotate(720deg); opacity:0; }
+}
+
+.shiny {
+  background:linear-gradient(
+    90deg,
+    #c7a15d,
+    #fff1bf,
+    #c7a15d,
+    #fff8df,
+    #c7a15d
+  );
+  background-size:200% auto;
+  color:transparent;
+  background-clip:text;
+  -webkit-background-clip:text;
+  animation:shine 5s linear infinite;
+}
+
+.confetti {
+  position:fixed;
+  top:-20px;
+  z-index:20;
+  pointer-events:none;
+  animation:fall linear forwards;
+}
+
+.cap {
+  display:inline-block;
+  animation:float 3s ease-in-out infinite;
+}
+
+/* PORTADA PRINCIPAL */
+
+.hero {
+  min-height:92vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+  position:relative;
+  overflow:hidden;
+  color:white;
+  background:
+    radial-gradient(ellipse at 10% 10%,#304a70 0,transparent 34%),
+    radial-gradient(ellipse at 90% 85%,#70233f 0,transparent 36%),
+    linear-gradient(135deg,#0b152b,#17294b 58%,#101d39);
+}
+
+.hero:before,.hero:after {
+  content:"✦  ❋  ✦  ❋  ✦";
+  position:absolute;
+  color:#d7b978;
+  opacity:.65;
+  letter-spacing:16px;
+  font-size:22px;
+  white-space:nowrap;
+}
+
+.hero:before {
+  top:28px;
+  left:-12px;
+  transform:rotate(-12deg);
+}
+
+.hero:after {
+  bottom:28px;
+  right:-12px;
+  transform:rotate(-12deg);
+}
+
+.frame {
+  width:min(850px,100%);
+  padding:48px 22px;
+  border:1px solid rgba(226,195,129,.75);
+  outline:1px solid rgba(226,195,129,.25);
+  outline-offset:8px;
+  position:relative;
+  animation:appear 1.5s ease both;
+}
+
+.eyebrow {
+  color:var(--gold-light);
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  font:600 12px Arial,sans-serif;
+}
+
+h1 {
+  font-size:clamp(48px,9vw,86px);
+  line-height:.98;
+  margin:22px 0 12px;
+  font-weight:normal;
+}
+
+.names {
+  font-size:clamp(21px,4vw,32px);
+  line-height:1.45;
+  margin:24px auto;
+  max-width:720px;
+}
+
+.rule {
+  width:92px;
+  height:1px;
+  background:var(--gold);
+  margin:26px auto;
+}
+
+.intro {
+  max-width:620px;
+  margin:auto;
+  color:#eee8dc;
+  font-size:19px;
+  line-height:1.7;
+}
+
+.scroll {
+  display:inline-block;
+  margin-top:32px;
+  color:var(--gold-light);
+  text-decoration:none;
+  font:12px Arial,sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--gold);
+  padding-bottom:8px;
+}
+
+/* SECCIONES */
+
+section { padding:76px 20px; }
+
+.wrap {
+  max-width:920px;
+  margin:auto;
+}
+
+.kicker {
+  text-align:center;
+  color:#9c7540;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font:600 11px Arial,sans-serif;
+}
+
+h2 {
+  text-align:center;
+  font-size:clamp(30px,5vw,44px);
+  font-weight:normal;
+  color:var(--navy);
+  margin:14px 0 30px;
+}
+
+.quote {
+  text-align:center;
+  font-size:21px;
+  line-height:1.65;
+  max-width:760px;
+  margin:0 auto;
+  color:#444;
+}
+
+.event { background:#f1eadc; }
+
+.details {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin:36px auto 26px;
+}
+
+.detail {
+  background:white;
+  border:1px solid #e5d6b7;
+  padding:25px 15px;
+  text-align:center;
+  box-shadow:0 8px 25px #18233a0d;
+  transition:.4s;
+}
+
+.detail:hover {
+  transform:translateY(-7px);
+  box-shadow:0 15px 30px #18233a20;
+}
+
+.detail .label {
+  font:11px Arial,sans-serif;
+  letter-spacing:.18em;
+  color:#9b7741;
+  text-transform:uppercase;
+}
+
+.detail strong {
+  display:block;
+  color:var(--navy);
+  font-size:22px;
+  font-weight:normal;
+  margin-top:12px;
+  line-height:1.35;
+}
+
+.venue {
+  text-align:center;
+  line-height:1.7;
+  font-size:19px;
+  margin:24px auto;
+}
+
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-top:26px;
+}
+
+.btn {
+  border:1px solid var(--gold);
+  background:var(--navy);
+  color:white;
+  padding:14px 22px;
+  text-decoration:none;
+  font:600 12px Arial,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover {
+  background:var(--wine);
+  transform:translateY(-3px);
+}
+
+.btn.alt {
+  background:transparent;
+  color:var(--navy);
+}
+
+.sponsors {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:34px;
+}
+
+.sponsor {
+  border-top:2px solid var(--gold);
+  padding:22px;
+  background:#fff;
+  transition:.4s;
+}
+
+.sponsor:hover {
+  transform:translateY(-5px);
+}
+
+.sponsor h3 {
+  text-align:center;
+  color:var(--wine);
+  font-size:21px;
+  font-weight:normal;
+  margin:0 0 14px;
+}
+
+.sponsor p {
+  text-align:center;
+  line-height:1.7;
+  margin:0;
+}
+
+.footer {
+  background:var(--navy);
+  color:#f3e7cb;
+  text-align:center;
+  padding:44px 20px;
+}
+
+.footer strong {
+  display:block;
+  font-size:30px;
+  font-weight:normal;
+  color:var(--gold-light);
+  margin-bottom:10px;
+}
+
+.footer small {
+  font:11px Arial,sans-serif;
+  letter-spacing:.12em;
+}
+
+/* ANIMACIONES AL DESPLAZARSE */
+
+.reveal {
+  opacity:0;
+  transform:translateY(45px);
+  transition:opacity 1.2s ease, transform 1.2s ease;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Evita que las secciones queden ocultas si no hay observador */
+.reveal.no-animation {
+  opacity:1;
+  transform:none;
+}
+
+/* REPRODUCTOR */
+
+.music-control {
+  position:fixed;
+  right:17px;
+  bottom:17px;
+  z-index:30;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:11px 15px;
+  border:1px solid var(--gold);
+  border-radius:30px;
+  background:var(--navy);
+  color:white;
+  font:12px Arial,sans-serif;
+  box-shadow:0 5px 20px #0003;
+  cursor:pointer;
+}
+
+.music-control:hover { background:var(--wine); }
+
+/* VENTANA DE CONFIRMACIÓN */
+
+.modal {
+  position:fixed;
+  inset:0;
+  background:#071124c9;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:50;
+}
+
+.modal.show { display:flex; }
+
+.dialog {
+  background:var(--cream);
+  max-width:430px;
+  width:100%;
+  padding:38px 28px;
+  text-align:center;
+  border:1px solid var(--gold);
+  box-shadow:0 20px 70px #0006;
+  animation:appear .4s ease;
+}
+
+.check {
+  width:54px;
+  height:54px;
+  border:1px solid #8caa85;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#527a4e;
+  font:30px Arial,sans-serif;
+  margin:0 auto 18px;
+}
+
+.dialog h2 {
+  font-size:31px;
+  margin:0 0 12px;
+  color:var(--navy);
+}
+
+.dialog p {
+  line-height:1.65;
+  margin:0 0 24px;
+}
+
+@media(max-width:650px) {
+  .details { grid-template-columns:1fr; }
+  .sponsors { grid-template-columns:1fr; }
+  .hero { min-height:85vh; }
+  .frame { padding:38px 16px; }
+  .intro { font-size:17px; }
+  section { padding:58px 18px; }
+  .music-control { right:10px; bottom:10px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto !important;
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" preload="auto" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- PORTADA DE BIENVENIDA -->
+
+<div class="welcome" id="welcome">
+  <div class="welcome-card">
+    <div class="eyebrow">Una noche para recordar · 2026</div>
+    <div style="font-size:42px;margin:20px">✦</div>
+    <h1 class="shiny">¡Estás invitado!</h1>
+    <p>Una meta alcanzada, un sueño cumplido y una noche especial para celebrar.</p>
+    <p>KENEDY &amp; JHEIMY</p>
+    <button class="open-btn" id="openInvitation">Abrir invitación ✨</button>
+  </div>
+</div>
+
+<!-- DESTELLOS -->
+
+<div class="sparkle" style="top:12%;left:8%">✦</div>
+<div class="sparkle" style="top:28%;right:9%;animation-delay:1s">✧</div>
+<div class="sparkle" style="top:55%;left:5%;animation-delay:2s">✦</div>
+<div class="sparkle" style="top:75%;right:7%;animation-delay:.5s">✧</div>
+
+<!-- PORTADA PRINCIPAL -->
+
+<header class="hero">
+  <div class="frame">
+    <div class="eyebrow">Una meta alcanzada · 2026</div>
+
+    <h1 class="shiny">Graduación</h1>
+
+    <div class="names">
+      Yeefrin Kenedy Orellana Huamanchagui
+      <br>
+      <span style="color:#e5c77f">&amp;</span>
+      <br>
+      Jheimy Angie Orellana Huamanchagui
+    </div>
+
+    <div class="rule"></div>
+
+    <p class="intro">
+      Hoy es un día muy especial, porque culmina una etapa de nuestras vidas que hemos logrado con la ayuda de Dios y de nuestros padres. Queremos compartir un momento agradable contigo para celebrar este triunfo.
+    </p>
+
+    <a class="scroll" href="#celebracion">Descubre los detalles ↓</a>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="kicker">Con gratitud y alegría</div>
+    <h2>Un logro para celebrar ✨</h2>
+    <p class="quote">
+      Tenemos el honor de invitarte a nuestra fiesta de graduación. Tu compañía hará aún más especial esta noche de alegría, recuerdos y nuevos comienzos.
+    </p>
+  </div>
+</section>
+
+<section class="event reveal" id="celebracion">
+  <div class="wrap">
+    <div class="kicker">Reserva esta fecha</div>
+    <h2>La celebración</h2>
+
+    <div class="details">
+      <div class="detail">
+        <div class="label">Día</div>
+        <strong>Martes<br>08 de diciembre</strong>
+      </div>
+
+      <div class="detail">
+        <div class="label">Hora</div>
+        <strong>9:00 p. m.</strong>
+      </div>
+
+      <div class="detail">
+        <div class="label">Año</div>
+        <strong>2026</strong>
+      </div>
+    </div>
+
+    <div class="venue">
+      <strong style="color:#70233f">Recepciones Ensueño</strong>
+      <br>
+      Av. 225 Paradero Las 2 Chinitas
+      <br>
+      Pachacútec – Ventanilla
+    </div>
+
+    <div class="actions">
+      <a class="btn"
+         target="_blank"
+         rel="noopener"
+         href="https://www.google.com/maps/search/?api=1&query=Recepciones+Ensue%C3%B1o+Av+225+Paradero+Las+2+Chinitas+Pachacutec+Ventanilla">
+        Ver ubicación
+      </a>
+
+      <button class="btn alt" id="confirm">
+        Confirmar asistencia
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="kicker">Con especial agradecimiento</div>
+    <h2>Nuestros padrinos</h2>
+
+    <div class="sponsors">
+      <div class="sponsor">
+        <h3>Padrinos de Kennedy</h3>
+        <p>
+          Cristian Orellana Bernardillo
+          <br>
+          Giovana Nina Manuel
+        </p>
+      </div>
+
+      <div class="sponsor">
+        <h3>Padrinos de Jheimy</h3>
+        <p>
+          Ginger Kimberly Salguero Alcala
+          <br>
+          Elmer Félix Santos Cueva
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <strong class="shiny">¡Te esperamos!</strong>
+  <small>KENNEDY &amp; JHEIMY · GRADUACIÓN 2026</small>
+  <div style="font-size:27px;margin-top:20px;color:#e4c47e">✦ ✧ ✦</div>
+</footer>
+
+<!-- CONTROL DE MÚSICA PROVISIONAL -->
+
+<button class="music-control" id="musicButton" style="display:none">
+  <span id="musicIcon">♫</span>
+  <span id="musicText">Activar sonido</span>
+</button>
+
+<!-- CONFIRMACIÓN -->
+
+<div class="modal" id="modal" role="dialog"
+     aria-modal="true" aria-labelledby="thanksTitle">
+
+  <div class="dialog">
+    <div class="check">✓</div>
+    <h2 id="thanksTitle">¡Muchas gracias!</h2>
+    <p>
+      Tu participación ha sido confirmada. Nos alegra compartir contigo este momento tan especial. ¡Te esperamos!
+    </p>
+    <button class="btn" id="close">Cerrar</button>
+  </div>
+</div>
+
+<script>
+/* CONFIRMACIÓN */
+
+const modal = document.getElementById('modal');
+
+document.getElementById('confirm').addEventListener('click', () => {
+  modal.classList.add('show');
+});
+
+document.getElementById('close').addEventListener('click', () => {
+  modal.classList.remove('show');
+});
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) modal.classList.remove('show');
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') modal.classList.remove('show');
+});
+
+/* ANIMACIONES AL DESPLAZARSE */
+
+const elementosReveal = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  elementosReveal.forEach(elemento => {
+    observer.observe(elemento);
+  });
+
+} else {
+  elementosReveal.forEach(elemento => {
+    elemento.classList.add('no-animation');
+  });
+}
+
+/* CONFETI Y BIRRETES */
+
+function lanzarCelebracion() {
+  const symbols = ['✦','✧','🎓','◆','●','❋'];
+  const colors = ['#c7a15d','#f0dba9','#70233f','#e5c77f'];
+
+  for (let i = 0; i < 65; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti';
+    piece.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+
+    piece.style.left = Math.random()*100 + 'vw';
+    piece.style.color = colors[Math.floor(Math.random()*colors.length)];
+    piece.style.fontSize = (10+Math.random()*15) + 'px';
+    piece.style.animationDuration = (3+Math.random()*4) + 's';
+    piece.style.animationDelay = (Math.random()*1.5) + 's';
+
+    document.body.appendChild(piece);
+
+    setTimeout(() => piece.remove(), 8500);
+  }
+}
+
+/* SONIDO PROVISIONAL GENERADO POR EL NAVEGADOR
+ /* REPRODUCTOR DE MÚSICA MP3 */
+
+const musica = document.getElementById('musica');
+const musicButton = document.getElementById('musicButton');
+const musicText = document.getElementById('musicText');
+
+let musicPlaying = false;
+
+function startMusic() {
+  musica.play()
+    .then(() => {
+      musicPlaying = true;
+      musicText.textContent = 'Pausar sonido';
+    })
+    .catch(error => {
+      musicPlaying = false;
+      musicText.textContent = 'No se pudo reproducir';
+      console.error('Error al reproducir el MP3:', error);
+    });
+}
+
+function stopMusic() {
+  musica.pause();
+  musicPlaying = false;
+  musicText.textContent = 'Reanudar sonido';
+}
+
+musicButton.addEventListener('click', () => {
+  if (musicPlaying) {
+    stopMusic();
+  } else {
+    startMusic();
+  }
+});
+
+/* ABRIR INVITACIÓN */
+
+document.getElementById('openInvitation').addEventListener('click', () => {
+  document.getElementById('welcome').classList.add('hidden');
+  document.getElementById('musicButton').style.display = 'flex';
+
+  lanzarCelebracion();
+  startMusic();
+});
+
+/* RESPETAR PREFERENCIA DE MOVIMIENTO */
+
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.sparkle').forEach(item => {
+    item.style.animation = 'none';
+  });
+}
+</script>
+
+
+
+</body>
+
+</html>
