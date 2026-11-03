@@ -580,11 +580,11 @@ h2 {
     <h1 class="shiny">Graduación</h1>
 
     <div class="names">
-      Yeefrin Kenedy Orellana Huamanchagui
+      Yeefrin Kenedy Orellana Huamanchaqui
       <br>
       <span style="color:#e5c77f">&amp;</span>
       <br>
-      Jheimy Angie Orellana Huamanchagui
+      Jheimy Angie Orellana Huamanchaqui
     </div>
 
     <div class="rule"></div>
@@ -758,20 +758,24 @@ function lanzarCelebracion() {
   const symbols = ['✦','✧','🎓','◆','●','❋'];
   const colors = ['#c7a15d','#f0dba9','#70233f','#e5c77f'];
 
-  function crearElemento() {
+  ffunction crearElemento() {
     const piece = document.createElement('div');
     piece.className = 'confetti';
-    piece.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+
+    const symbol = symbols[Math.floor(Math.random()*symbols.length)];
+    piece.textContent = symbol;
+    piece.style.fontSize = symbol === '🎓'
+        ? (22+Math.random()*27) + 'px'
+        : (18+Math.random()*15) + 'px';
 
     piece.style.left = Math.random()*100 + 'vw';
     piece.style.color = colors[Math.floor(Math.random()*colors.length)];
-    piece.style.fontSize = (20+Math.random()*25) + 'px';
     piece.style.animationDuration = (4+Math.random()*4) + 's';
 
     document.body.appendChild(piece);
 
     setTimeout(() => piece.remove(), 8500);
-  }
+}
 
   // Crear una primera lluvia de elementos
   for (let i = 0; i < 65; i++) {
