@@ -200,21 +200,75 @@ button,a { -webkit-tap-highlight-color:transparent; }
   position:absolute;
   display:block;
   object-fit:cover;
-  border:1px solid rgba(226,195,129,.6);
-  box-shadow:0 12px 32px rgba(0,0,0,.24);
-  opacity:.72;
+  border:3px solid #d9b86a;
+  padding:4px;
+  background:white;
+  box-shadow:
+    0 0 0 2px rgba(217,184,106,.4),
+    0 12px 35px rgba(0,0,0,.28);
+  opacity:.85;
 }
-.hero-media .hero-cap { width:clamp(88px,13vw,160px); height:clamp(88px,13vw,160px); top:7%; left:3%; border-radius:50%; }
-.hero-media .hero-diploma { width:clamp(88px,13vw,160px); height:clamp(88px,13vw,160px); bottom:7%; right:3%; border-radius:50%; }
-.hero-media .hero-gown { width:clamp(70px,10vw,115px); height:clamp(70px,10vw,115px); bottom:10%; left:5%; border-radius:50%; }
-.hero-media .hero-fireworks { width:clamp(70px,10vw,115px); height:clamp(70px,10vw,115px); top:10%; right:5%; border-radius:50%; }
+
+.hero-media .hero-cap {
+  width:clamp(120px,18vw,240px);
+  height:clamp(120px,18vw,240px);
+}
+
+.hero-media .hero-diploma {
+  width:clamp(120px,18vw,240px);
+  height:clamp(120px,18vw,240px);
+}
+
+.hero-media .hero-gown {
+  width:clamp(100px,15vw,180px);
+  height:clamp(100px,15vw,180px);
+}
+
+.hero-media .hero-fireworks {
+  width:clamp(100px,15vw,180px);
+  height:clamp(100px,15vw,180px);
+}
+
+   
 .hero .frame { z-index:1; }
+
 @media(max-width:650px) {
-  .hero-media img { opacity:.42; }
-  .hero-media .hero-cap { top:2%; left:2%; width:62px; height:62px; }
-  .hero-media .hero-fireworks { top:2%; right:2%; width:62px; height:62px; }
-  .hero-media .hero-gown { bottom:2%; left:2%; width:62px; height:62px; }
-  .hero-media .hero-diploma { bottom:2%; right:2%; width:62px; height:62px; }
+
+.hero-media img{
+   opacity:.55;
+}
+
+.hero-media .hero-cap{
+   width:120px;
+   height:120px;
+   top:3%;
+   left:2%;
+}
+
+.hero-media .hero-fireworks{
+   width:120px;
+   height:120px;
+   top:3%;
+   right:2%;
+}
+
+.hero-media .hero-gown{
+   width:120px;
+   height:120px;
+   bottom:5%;
+   left:2%;
+}
+
+.hero-media .hero-diploma{
+   width:120px;
+   height:120px;
+   bottom:5%;
+   right:2%;
+}
+
+}
+
+   
   .hero .frame { margin:64px 0; }
 }
 @media(prefers-reduced-motion:reduce) {
